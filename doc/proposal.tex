@@ -1,0 +1,99 @@
+\documentclass{acm_proc_article-sp}
+
+\begin{document}
+
+\title{Filesystem V2}
+\subtitle{[A proposal for a C++ standard library]}
+
+\numberofauthors{1}
+\author{
+\alignauthor
+Eric Fiselier
+    \affaddr{University of Calgary}
+    \email{eric@efcs.ca}
+}
+\maketitle
+
+\begin{abstract}
+    The standardization of C++ libraries in a vital part of language evolution.
+    One of the mostly widely used and requested is the filesystem library. The
+    current filesystem library proposal is based of the boost filesystem library
+    and suffers from a range of security issue. The goal of this research project
+    is to produce a second revision of the filesystem proposal and submit it for
+    standardization.
+
+    The current filesystem proposal is N3505
+    \footnote{http://www.open-std.org/jtc1/sc22/wg21/ docs/papers/2013/n3505.html}.
+
+\end{abstract}
+
+\section{The Problem}
+    "Time of check to time of use" is the main problem this proposal will try
+    and address. In filesystem v1 strings are used to represent paths. Since
+    these strings have very little relation to actual filesystem entities this
+    makes the entire design susceptible to TOCTOU race conditions. Similar
+    problems exist when checking filesystem permissions and other information.
+    \footnote{See the status function}
+    This renders the entire design insecure and prone to race conditions.
+
+    The second problem with the current proposal is its testability. The current
+    design ties the library API with the underlying OS API directly. For
+    example, the \verb&resize_file& function is specified in terms of the POSIX
+    \verb&truncate& function. This makes it impossible to test how \verb&resize_file&
+    handles improbable error conditions like "disk full".
+
+    The API linkage described above also leads to a third problem. Since the API
+    is specified in terms of POSIX function calls, it makes it hard to implement
+    on non-POSIX systems. It also makes the current design unusable on systems
+    with multiple filesystems.
+
+\section{Motivation}
+    This work is motivated by discussions with parties representing Google and
+    IBM. While the current filesystem proposal covers a wide swath of use cases
+    it omits consideration of uses in more "industrial" settings. In these settings
+    the aforementioned concerns regarding security and irregular filesystems
+    make the current proposal unusable.
+
+    Furthermore, standardizing a library that promotes TOCTOU race conditions will
+    promote end users to write insecure code. Previously standardized
+    functions like \verb&rand&\footnote{http://channel9.msdn.com/Events/GoingNative/2013/rand-Considered-Harmful}
+    and \verb&gets&\footnote{http://en.cppreference.com/w/c/io/gets}
+    have caused non-trivial real world security vulnerabilities. Obviously it 
+    would be greatly beneficial to standardize a design that is not prone to
+    these problems.
+
+    Also increasing the testability of the design will greatly the quality of
+    implementation. The current design is impossible to test without actually
+    manipulating the underlying systems filesystem. This limits the abilities of
+    implementations to write and ship safe and portable test suites. For example
+    nobody wants the test case for recursively removing a directory to wipe away
+    an end users entire filesystem. The ability to test against faux filesystems
+    will greatly help implementers.
+
+\section{A Solution}
+    With some difficulty I will try and describe the direction for the potential
+    solution. It's important to remember that the solution must be all
+    encompassing. ie. it must not only solve the problem but also provide API
+    design that is both useful and implementable. For this reason describing the solution
+    reduces to actually solving the problem.
+
+    \subsection {Solving TOCTOU}
+    The main idea behind solving the TOCTOU problem is designing (and limiting)
+    the API to provide only "atomic" function. The idea behind atomic functions is
+    simple. Looking up a file or asking for information about it should be
+    equivalent to opening it. By doing so you lock the information returned to
+    a concrete file handle. While this limits the functionality the API can
+    provide it makes the API as a whole more secure.
+
+    \subsection {Solving Testability and Multiple Filesystem Support}
+    The solutions to these problems is to switch the design to using a service
+    provider model. There will be a filesystem object that will accept a service
+    provider upon construction. This allows for users to provide mock filesystems
+    as well as to provide custom service providers for irregular filesystems.
+
+    The service provider will be modeled in term of a set of concepts. The 
+    implementation will depend on the provider to implement these concepts in 
+    order to provide the top level API.
+
+
+\end{document}

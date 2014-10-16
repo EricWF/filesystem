@@ -1,0 +1,112 @@
+Chandler && Titus:
+
+- Problems we are trying to solve:
+  - Time of check time of use.
+  - Testability of API. Improbably conditions like disk full.
+  - Query filesytems distinctly from files. 
+                                       
+- ErrorOr, or output parameter. Email for paper...
+- Learn scatter gather IO. 
+- time of check from time of use. 
+- No path orientation.
+- filesystem object.
+- Type-Erased Concepts.
+- paramaterize API based on filesystem.
+- Easier to test.
+- Type erased.
+- Lookups as methods.
+- Glob and return stat at the same time. (Match and stat).
+- Error Conditions: lots, generic.
+
+- Directory concept.
+  - Lookup entry within it by name.
+  - Add/remove entry by name.
+  - non-ordered, iterable entry list.
+
+- Directory entry:
+  - Can be:
+    - Directory
+    - File
+  - Kind, Name
+  - ACLs (Questionable!!!!! NO ACLs, Masks...), Can we get this with getdents.
+
+- Filesystem concept
+  - Should model root.
+  - Refinment of directory concept.
+  - Directory modeled is the root of the filesystem.
+  - Lookup in filesystem == lookup in root.
+  - Lookup method == open(...)
+    - Finds entry by that name and opens it 
+    - Distinct from iterating.
+      - Iterating does not open entries.
+    - Obvious for entries that are files.
+    - For entries that are directories.
+      - Must open into object.
+      - Object must model directory.
+      - It may model a file concept.
+      - On some filesystems everything will model a file.
+        - POSIX everything is a file.
+        - Database does not.
+    - File concept is an open file.
+      - Closing files can close files. This closes errors.
+      - File close breaks RIAA.
+      - (File might model thread.join). File.close must be called. Not in destructor.
+- Read, Write, ReadWrite files. (Derives from File concept).
+   - Read, Write, ReadWrite, files may not be same type.
+   - Close behavior for read/write files are different.
+   - Need Read, Write, ReadWrite concept.
+   - ReadWrite is union of ReadWrite.
+   - Seekable, Stat, Name, overlaps.
+   - Integral types for stat must be signed. 64 bit signed integer.
+     - Offset must be signed. Size doesn't need to be signed. Combining the two
+       results in weird types.
+     - Support for 96 bit integers.
+       - Uspecified but > 64.
+   - Stat, Seek, Read, Write.
+   - Seek:
+     - Accepts offset. Same type as stat::size. 
+     - Moves position of file. (position abstract).
+     - Tell.
+- Readable:
+  - read. Returns vector<char> or vector<vector<char>>
+  - pread(position, size) -> vector<char>(??)
+  - Stream method that exposes std::istream interface.
+  - BIG SCARY NOTE(!!!!!!!!!!): Do we allow partial reads.
+  - Destructor closes file. (close should not fail! ignores errorsu)
+    - Open directory.
+    - chdir into /proc/self/fd/4
+    - fork thread and remove dentry that you opened.
+    - Close <fd>
+- Writable:
+  - write -> pwrite(data, tell())
+  - pwrite(begin, end, pos) -> iterator at end of write (allow partial writes).
+  - truncate. 
+  - flush() -> error_code
+  - FlushOnClose (not a part of concept).
+  - close(lambda_error_handler)
+  - Destructor:
+    - Program is invalid if destructor invoked before close.
+-ReadWrite.
+ - Same destructor semantics of Write concept.
+
+- Types of Flush:
+  - Out of process space
+  - Out of machine
+  - In stable storage.
+  - Possible difference betweeen flush and persist.
+  - Flush:
+   - Data will survive past process termination.
+  - Persist:
+    - Data resides in persistant storage. 
+  - 
+
+
+- Filesystem zoo:
+  - In memory
+  - Constant test filesystem.
+  - Database filesystem. (is no directory)
+  - linux filesystem. Device filesystem.
+  - Symlink trees. points to content (did I mean constant) address storage.
+    - Symlink forest. 
+    - Directed acylclic graph.
+  
