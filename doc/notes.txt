@@ -1,0 +1,19 @@
+Directory:
+    - Lookup entry within it by name.
+    - Add/Remove entry by name.
+    - non-ordered, iterable entry list.
+
+DirectoryEntry:
+    - Can be File or Directory.
+    - Kind, Name
+    - ACLs (Unlikely)
+
+Filesystem:
+    - Refinement of Directory
+    - Lookup method == open(...)
+        -
+
+ReadFile:
+
+WriteFile:
+

@@ -1,0 +1,25 @@
+- Difference between getdents and readdir ?
+- How hard is it to break scandir if the attacker controls the FS.
+- semantics of ino_t on linux
+- How to lookup rooted at a directory?
+- can FD point to sym link?
+- How do symlinks fit into this entire project?
+- What does 'chdir into /proc/self/fd/4' do?
+- Rational into Readable close specification.
+- What happens when my open FD is moved
+- What are ACL's
+- Learn about proc/self/fd
+- Learn about readlink
+
+POSIX filesystem calls:
+    - getdents
+    - readdir
+    - closedir
+    - dirfd
+    - opendir
+    - rewinddir
+        - thread safe
+    - scandir
+    - seekdir
+    - telldir
+    - ftw

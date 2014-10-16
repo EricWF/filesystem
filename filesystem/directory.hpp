@@ -5,7 +5,20 @@
 
 namespace fs
 {
-    class directory;
-    class directory_iterator;
+    class directory
+    {
+    public:
+        directory();
+        directory(directory const &);
+        directory(directory &&);
+
+        ~directory();
+
+        directory & operator=(directory const &);
+        directory & operator=(directory &&);
+
+        directory_iterator begin();
+        directory_iterator end();
+    };
 }                                                               // namespace fs
 #endif /* FILESYSTEM_DIRECTORY_HPP */
