@@ -52,30 +52,30 @@ include lib/CMakeFiles/ObjLib.dir/progress.make
 # Include the compile flags for this target's objects.
 include lib/CMakeFiles/ObjLib.dir/flags.make
 
-lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.o: lib/CMakeFiles/ObjLib.dir/flags.make
-lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.o: ../src/test.cpp
+lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o: lib/CMakeFiles/ObjLib.dir/flags.make
+lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o: ../src/filesystem.cpp
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/eric/workspace/filesystem/build/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.o"
-	cd /home/eric/workspace/filesystem/build/lib && /opt/llvm-tot/bin/clang++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ObjLib.dir/__/src/test.cpp.o -c /home/eric/workspace/filesystem/src/test.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o"
+	cd /home/eric/workspace/filesystem/build/lib && /opt/llvm-tot/bin/clang++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o -c /home/eric/workspace/filesystem/src/filesystem.cpp
 
-lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ObjLib.dir/__/src/test.cpp.i"
-	cd /home/eric/workspace/filesystem/build/lib && /opt/llvm-tot/bin/clang++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/eric/workspace/filesystem/src/test.cpp > CMakeFiles/ObjLib.dir/__/src/test.cpp.i
+lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.i"
+	cd /home/eric/workspace/filesystem/build/lib && /opt/llvm-tot/bin/clang++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/eric/workspace/filesystem/src/filesystem.cpp > CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.i
 
-lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ObjLib.dir/__/src/test.cpp.s"
-	cd /home/eric/workspace/filesystem/build/lib && /opt/llvm-tot/bin/clang++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/eric/workspace/filesystem/src/test.cpp -o CMakeFiles/ObjLib.dir/__/src/test.cpp.s
+lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.s"
+	cd /home/eric/workspace/filesystem/build/lib && /opt/llvm-tot/bin/clang++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/eric/workspace/filesystem/src/filesystem.cpp -o CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.s
 
-lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.o.requires:
-.PHONY : lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.o.requires
+lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o.requires:
+.PHONY : lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o.requires
 
-lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.o.provides: lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.o.requires
-	$(MAKE) -f lib/CMakeFiles/ObjLib.dir/build.make lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.o.provides.build
-.PHONY : lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.o.provides
+lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o.provides: lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o.requires
+	$(MAKE) -f lib/CMakeFiles/ObjLib.dir/build.make lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o.provides.build
+.PHONY : lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o.provides
 
-lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.o.provides.build: lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.o
+lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o.provides.build: lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o
 
-ObjLib: lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.o
+ObjLib: lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o
 ObjLib: lib/CMakeFiles/ObjLib.dir/build.make
 .PHONY : ObjLib
 
@@ -83,7 +83,7 @@ ObjLib: lib/CMakeFiles/ObjLib.dir/build.make
 lib/CMakeFiles/ObjLib.dir/build: ObjLib
 .PHONY : lib/CMakeFiles/ObjLib.dir/build
 
-lib/CMakeFiles/ObjLib.dir/requires: lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.o.requires
+lib/CMakeFiles/ObjLib.dir/requires: lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o.requires
 .PHONY : lib/CMakeFiles/ObjLib.dir/requires
 
 lib/CMakeFiles/ObjLib.dir/clean:

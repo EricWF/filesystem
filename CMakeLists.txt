@@ -12,7 +12,7 @@ project(FilesystemLibrary CXX C)
 
 # Set configuration variables for elib's root path.
 set(FILESYSTEM_ROOT_PATH ${CMAKE_CURRENT_LIST_DIR})
-include_directories(${FILESYSTEM_ROOT_PATH}/include)
+include_directories(${FILESYSTEM_ROOT_PATH})
 
 
 # Include compiler, library, build-type configuration.

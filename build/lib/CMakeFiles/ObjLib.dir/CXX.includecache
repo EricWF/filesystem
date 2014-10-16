@@ -6,9 +6,13 @@
 
 #IncludeRegexTransform: 
 
-../include/test.h
+../filesystem/filesystem.hpp
+filesystem/fwd.hpp
+-
 
-/home/eric/workspace/filesystem/src/test.cpp
-test.h
-/home/eric/workspace/filesystem/src/test.h
+../filesystem/fwd.hpp
+
+/home/eric/workspace/filesystem/src/filesystem.cpp
+filesystem/filesystem.hpp
+-
 

@@ -129,29 +129,29 @@ filesystem/fast:
 	cd /home/eric/workspace/filesystem/build && $(MAKE) -f lib/CMakeFiles/filesystem.dir/build.make lib/CMakeFiles/filesystem.dir/build
 .PHONY : filesystem/fast
 
-__/src/test.o: __/src/test.cpp.o
-.PHONY : __/src/test.o
+__/src/filesystem.o: __/src/filesystem.cpp.o
+.PHONY : __/src/filesystem.o
 
 # target to build an object file
-__/src/test.cpp.o:
-	cd /home/eric/workspace/filesystem/build && $(MAKE) -f lib/CMakeFiles/ObjLib.dir/build.make lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.o
-.PHONY : __/src/test.cpp.o
+__/src/filesystem.cpp.o:
+	cd /home/eric/workspace/filesystem/build && $(MAKE) -f lib/CMakeFiles/ObjLib.dir/build.make lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o
+.PHONY : __/src/filesystem.cpp.o
 
-__/src/test.i: __/src/test.cpp.i
-.PHONY : __/src/test.i
+__/src/filesystem.i: __/src/filesystem.cpp.i
+.PHONY : __/src/filesystem.i
 
 # target to preprocess a source file
-__/src/test.cpp.i:
-	cd /home/eric/workspace/filesystem/build && $(MAKE) -f lib/CMakeFiles/ObjLib.dir/build.make lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.i
-.PHONY : __/src/test.cpp.i
+__/src/filesystem.cpp.i:
+	cd /home/eric/workspace/filesystem/build && $(MAKE) -f lib/CMakeFiles/ObjLib.dir/build.make lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.i
+.PHONY : __/src/filesystem.cpp.i
 
-__/src/test.s: __/src/test.cpp.s
-.PHONY : __/src/test.s
+__/src/filesystem.s: __/src/filesystem.cpp.s
+.PHONY : __/src/filesystem.s
 
 # target to generate assembly for a file
-__/src/test.cpp.s:
-	cd /home/eric/workspace/filesystem/build && $(MAKE) -f lib/CMakeFiles/ObjLib.dir/build.make lib/CMakeFiles/ObjLib.dir/__/src/test.cpp.s
-.PHONY : __/src/test.cpp.s
+__/src/filesystem.cpp.s:
+	cd /home/eric/workspace/filesystem/build && $(MAKE) -f lib/CMakeFiles/ObjLib.dir/build.make lib/CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.s
+.PHONY : __/src/filesystem.cpp.s
 
 # Help Target
 help:
@@ -163,9 +163,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... filesystem"
 	@echo "... rebuild_cache"
-	@echo "... __/src/test.o"
-	@echo "... __/src/test.i"
-	@echo "... __/src/test.s"
+	@echo "... __/src/filesystem.o"
+	@echo "... __/src/filesystem.i"
+	@echo "... __/src/filesystem.s"
 .PHONY : help
 
 

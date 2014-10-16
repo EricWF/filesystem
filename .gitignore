@@ -1,2 +1,4 @@
 /test_coverage.info
 *.pyc
+/build
+/lib/libfilesystem.so

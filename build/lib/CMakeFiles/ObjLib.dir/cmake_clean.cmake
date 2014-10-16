@@ -1,5 +1,5 @@
 FILE(REMOVE_RECURSE
-  "CMakeFiles/ObjLib.dir/__/src/test.cpp.o"
+  "CMakeFiles/ObjLib.dir/__/src/filesystem.cpp.o"
 )
 
 # Per-language clean rules from dependency scanning.
