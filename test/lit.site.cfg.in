@@ -1,0 +1,12 @@
+@AUTO_GEN_COMMENT@
+config.compiler              = "@CMAKE_CXX_COMPILER@"
+config.src_root              = "@CMAKE_SOURCE_DIR@"
+config.obj_root              = "@CMAKE_BINARY_DIR@"
+config.std                   = "@STD_VERSION@"
+config.compile_flags         = "@TEST_COMPILE_FLAGS@".split()
+config.link_flags            = "@TEST_LINK_FLAGS@".split()
+config.warning_flags         = "@WARNING_FLAGS@".split()
+config.library_paths         = "@CMAKE_LIBRARY_PATH@"
+
+# Let the main config do the real work.
+lit_config.load_config(config, "@CMAKE_SOURCE_DIR@/test/lit.cfg")

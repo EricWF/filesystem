@@ -1,0 +1,1 @@
+/opt/llvm-tot/bin/clang++  -fPIC  -g -O0 -fno-omit-frame-pointer -fno-elide-constructors --coverage   -shared -Wl,-soname,libfilesystem.so -o ../../lib/libfilesystem.so CMakeFiles/ObjLib.dir/__/src/test.cpp.o -lpthread 
